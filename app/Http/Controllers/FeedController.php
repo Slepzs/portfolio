@@ -44,11 +44,10 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
-
-        $data = $request->all();
-        Feed::create($data)
-            ->addmedia($request->file('image'))
-            ->toMediaCollection('images');
+        $createFeedItem = Feed::create($request->except('image'));
+        if($request->file('image')) {
+            $createFeedItem->addmedia($request->file('image'))->toMediaCollection('images');
+        }
         return redirect()->back();
     }
 

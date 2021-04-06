@@ -556,18 +556,34 @@ video {
 	right: 0px;
 }.left-0{
 	left: 0px;
+}.-top-0\.5{
+	top: -0.125rem;
+}.-top-0{
+	top: 0px;
+}.-top-1{
+	top: -0.25rem;
+}.-top-1\.5{
+	top: -0.375rem;
+}.-top-3{
+	top: -0.75rem;
 }.z-0{
 	z-index: 0;
 }.z-40{
 	z-index: 40;
 }.z-50{
 	z-index: 50;
+}.col-span-2{
+	grid-column: span 2 / span 2;
+}.col-span-1{
+	grid-column: span 1 / span 1;
 }.m-6{
 	margin: 1.5rem;
 }.m-1{
 	margin: 0.25rem;
 }.m-2{
 	margin: 0.5rem;
+}.m-5{
+	margin: 1.25rem;
 }.mx-auto{
 	margin-left: auto;
 	margin-right: auto;
@@ -719,6 +735,8 @@ video {
 	justify-content: center;
 }.justify-end{
 	justify-content: flex-end;
+}.gap-1{
+	gap: 0.25rem;
 }.space-x-8 > :not([hidden]) ~ :not([hidden]){
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -727,6 +745,8 @@ video {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}.self-center{
+	align-self: center;
 }.justify-self-end{
 	justify-self: end;
 }.overflow-hidden{
@@ -750,6 +770,8 @@ video {
 	border-bottom-right-radius: 0.375rem;
 }.border{
 	border-width: 1px;
+}.border-2{
+	border-width: 2px;
 }.border-t{
 	border-top-width: 1px;
 }.border-r{
@@ -777,6 +799,9 @@ video {
 }.border-gray-100{
 	--tw-border-opacity: 1;
 	border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+}.border-myblack{
+	--tw-border-opacity: 1;
+	border-color: rgba(29, 29, 27, var(--tw-border-opacity));
 }.bg-white{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -792,6 +817,11 @@ video {
 }.bg-indigo-600{
 	--tw-bg-opacity: 1;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
+}.bg-myblack{
+	--tw-bg-opacity: 1;
+	background-color: rgba(29, 29, 27, var(--tw-bg-opacity));
+}.bg-opacity-75{
+	--tw-bg-opacity: 0.75;
 }.bg-gradient-to-r{
 	background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }.p-6{
@@ -877,6 +907,9 @@ video {
 }.text-5xl{
 	font-size: 3rem;
 	line-height: 1;
+}.text-2xl{
+	font-size: 1.5rem;
+	line-height: 2rem;
 }.font-medium{
 	font-weight: 500;
 }.font-semibold{

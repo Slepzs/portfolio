@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full flex flex-col items-center pt-6 sm:pt-0 gradient bg-gray-100">
+    <div class="h-screen flex flex-col items-center pt-6 sm:pt-0 gradient bg-gray-100">
         <slot />
     </div>
 </template>
