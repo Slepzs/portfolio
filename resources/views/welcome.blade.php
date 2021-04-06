@@ -1,6 +1,10 @@
-<div style="background-image: url('{{ asset('/img/RG.svg')}}');" class="test"></div>
-<img src="{{url('/img/RG.svg')}}" alt="Image"/>
+<div>
 
+  @foreach($feed as $f)
+      {{ $f->getFirstMediaUrl('images') }}
+  @endforeach
+
+</div>
 <style>
     .test {
         width: 100%;

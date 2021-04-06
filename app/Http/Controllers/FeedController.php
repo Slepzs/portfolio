@@ -12,11 +12,18 @@ class FeedController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
 
+        $feed = Feed::with('media')->get();
+
+
+
+        return Inertia::render('Dashboard', [
+            'feed' => $feed,
+        ]);
     }
 
     /**
@@ -37,7 +44,11 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
-        const newFeed = Feed::create($request->all());
+
+        $data = $request->all();
+        Feed::create($data)
+            ->addmedia($request->file('image'))
+            ->toMediaCollection('images');
         return redirect()->back();
     }
 
@@ -81,8 +92,10 @@ class FeedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+
+        Feed::find($id)->delete();
+        return redirect()->back();
     }
 }

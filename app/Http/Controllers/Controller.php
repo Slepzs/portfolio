@@ -12,9 +12,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public function createPost(Request $request) {
-
-
+    public function testImages() {
 
     }
 

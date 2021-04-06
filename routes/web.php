@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Feed;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-/*
+
 Route::get('/', function () {
     return Inertia::render('Register', [
         'canLogin' => Route::has('login'),
@@ -24,11 +25,15 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-*/
 
+
+/*
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+*/
+
+Route::get('/dashboard', [App\Http\Controllers\FeedController::class, 'index'])->name('dashboard');
 
 Route::get('/home', function() {
     return Inertia::render('Home');
@@ -40,6 +45,14 @@ Route::resource('feed', 'App\Http\Controllers\FeedController');
 
 Route::get('/x', function() {
    return view('welcome');
+});
+
+Route::get('/x', function() {
+
+    $feed = Feed::with('media')->get();
+    // return $wines;
+    return view('welcome', compact('feed'));
+
 });
 
 
