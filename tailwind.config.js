@@ -16,7 +16,11 @@ module.exports = {
             colors: {
                 'myorange': '#da715b',
                 'myblack': '#1d1d1b'
-            }
+            },
+            boxShadow: {
+                link: '0 -4px 0 0 rgba(218, 113, 91, 0.7) inset',
+                linkhover: '0 -12px 0 0 rgba(218, 113, 91, 0.7) inset',
+            },
         }
     },
 

@@ -29,9 +29,11 @@ Route::get('/register', function () {
 
 Route::get('/', function() {
     return Inertia::render('Home');
-});
+})->name('home');
 
-
+Route::get('/blog', function() {
+    return Inertia::render('Blog');
+})->name('blog');
 /*
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
