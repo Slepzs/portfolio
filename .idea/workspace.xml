@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c77c9f2-a30e-4423-9054-7b35c63935b0" name="Default Changelist" comment="" />
+    <list default="true" id="3c77c9f2-a30e-4423-9054-7b35c63935b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +30,17 @@
         <option value="Vue Single File Component" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -155,15 +176,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="12.20.7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Applications/node-v14.16.1-linux-x64/bin" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -185,9 +208,14 @@
         <script value="watch-poll" />
       </scripts>
       <node-interpreter value="project" />
+      <package-manager value="/usr/lib/node_modules/npm" />
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.watch-poll" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.watch-poll" />
@@ -208,56 +236,19 @@
       <workItem from="1617535883911" duration="5084000" />
       <workItem from="1617540987542" duration="7899000" />
       <workItem from="1617614378862" duration="50539000" />
+      <workItem from="1617782669896" duration="1183000" />
+      <workItem from="1617807479388" duration="1013000" />
+      <workItem from="1617886500092" duration="729000" />
+      <workItem from="1617888796568" duration="1380000" />
+      <workItem from="1617891760920" duration="3888000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1060" y="454" key="FileChooserDialogImpl" timestamp="1615914174611">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1060" y="454" key="FileChooserDialogImpl/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1615914174611" />
-    <state width="2517" height="302" key="GridCell.Tab.0.bottom" timestamp="1617748121861">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="302" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617748121861" />
-    <state width="2517" height="302" key="GridCell.Tab.0.center" timestamp="1617748121861">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="302" key="GridCell.Tab.0.center/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617748121861" />
-    <state width="2517" height="302" key="GridCell.Tab.0.left" timestamp="1617748121860">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="302" key="GridCell.Tab.0.left/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617748121860" />
-    <state width="2517" height="302" key="GridCell.Tab.0.right" timestamp="1617748121861">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="2517" height="302" key="GridCell.Tab.0.right/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617748121861" />
-    <state x="860" y="434" key="IDE.errors.dialog" timestamp="1617737331675">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="860" y="434" key="IDE.errors.dialog/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617737331675" />
-    <state x="781" y="344" key="SettingsEditor" timestamp="1617629365976">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="781" y="344" key="SettingsEditor/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617629365976" />
-    <state x="797" y="293" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1617617322369">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="797" y="293" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617617322369" />
-    <state x="987" y="433" width="585" height="558" key="find.popup" timestamp="1617647929612">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="987" y="433" width="585" height="558" key="find.popup/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617647929612" />
-    <state x="936" y="330" key="run.anything.popup" timestamp="1617706381830">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="936" y="330" key="run.anything.popup/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617706381830" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1617743913053">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/2560.349.1920.1040@0.0.2560.1400" timestamp="1617743913053" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

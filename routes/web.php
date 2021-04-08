@@ -17,13 +17,18 @@ use Inertia\Inertia;
 */
 
 
-Route::get('/', function () {
+Route::get('/register', function () {
     return Inertia::render('Register', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+
+Route::get('/', function() {
+    return Inertia::render('Home');
 });
 
 
@@ -35,17 +40,21 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [App\Http\Controllers\FeedController::class, 'index'])->name('dashboard');
 
+/*
 Route::get('/home', function() {
     return Inertia::render('Home');
 })->name('home');
+*/
 
 require __DIR__.'/auth.php';
 
 Route::resource('feed', 'App\Http\Controllers\FeedController');
 
-Route::get('/x', function() {
+/*
+Route::get('/', function() {
    return view('welcome');
 });
+*/
 
 Route::get('/x', function() {
 
