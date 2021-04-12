@@ -1,56 +1,48 @@
 <template>
-
- <div class="container py-2">
-     <div class="flex justify-around flex-wrap">
-         <div class="sm:block">
-             <inertia-link href="/">
-                 <Logo />
-             </inertia-link>
-         </div>
-         <ul class="self-center flex ">
-             <li><NavLink :href="route('home')">Home</NavLink></li>
-             <li><NavLink :href="route('blog')">Blog</NavLink></li>
-             <li><NavLink :href="route('login')">Demo</NavLink></li>
-         </ul>
-     </div>
- </div>
+    <Navigation />
 
 
 
 
-
-
-
-    <div class="container">
-        <div class="flex flex-wrap justify-center content-center">
-            <div class="grid  sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 content-center">
-                <div class="grid p-2 content-center">
-                    <p class="text-white text-2xl  sm:text-4xl __public_light max-w-lg leading-tight">Hallo! My name is <span class="__public_md">
-                        <a class="no-underline shadow-link hover:shadow-linkhover transition-shadow duration-800" href="https://github.com/slepzs" target="_blank">Tobias</a></span>, and this is my portfolio/future blog. I usually do Web development for a living.</p>
+    <div class="container heightMinusNav h-full">
+            <div class="grid h-full items-center justify-center sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 content-center">
+                <div class="relative justify-self-center">
+                        <img @mouseover="hover = true" @mouseleave="hover = false" :class="{ active: hover }" class="block w-80 bg-white rounded-full p-2" src="/img/wizard.png" alt="A wizard in disguise">
                 </div>
-                <div class="p-2">
-                    <img class="block sm:max-w-lg" src="/img/wizard.png">
+                <div class="grid p-2 content-center">
+                    <p class="text-white text-2xl py-4  sm:text-4xl __public_light max-w-lg leading-tight"> <span class="__public_md">
+                        <a class="no-underline shadow-link hover:shadow-linkhover transition-shadow duration-800" href="https://github.com/slepzs" target="_blank">Tobias</a> Heide</span></p>
+                    <p class="text-white text-2xl py-4 sm:text-4xl __public_light max-w-lg leading-tight">I'm a Web Developer from Denmark</p>
+                    <p class="text-white text-2xl py-4 sm:text-4xl __public_light max-w-lg leading-tight">This website is being developed in April 2021</p>
+                    <p class="text-white text-2xl py-4 sm:text-4xl __public_light max-w-lg leading-tight">And is the start to something great</p>
                 </div>
             </div>
-        </div>
     </div>
+
+
 
 
 
 </template>
 
 
+<style scoped>
+
+.heightMinusNav {
+    height: calc(100vh - 90px);
+}
+
+</style>
 
 
 <script>
-import Logo from '@/Components/ApplicationLogo';
 import Main from '@/Layouts/Main';
-import NavLink from '@/Components/NavLink';
 export default {
     layout: Main,
-    components: {
-        Logo,
-        NavLink
-    },
+    data() {
+        return {
+            hover: false,
+        }
+    }
 }
 </script>

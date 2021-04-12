@@ -31,9 +31,9 @@ Route::get('/', function() {
     return Inertia::render('Home');
 })->name('home');
 
-Route::get('/blog', function() {
-    return Inertia::render('Blog');
-})->name('blog');
+Route::get('/articles', function() {
+    return Inertia::render('Articles');
+})->name('articles');
 /*
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
