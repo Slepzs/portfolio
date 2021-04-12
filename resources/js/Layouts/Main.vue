@@ -1,7 +1,32 @@
 <template>
     <div class="h-full flex flex-col items-center pt-6 sm:pt-0 gradient_c bg-gray-100">
-        <Navigation />
+
+        <!-- Simple Navigation -->
+        <div class="container w-full py-4">
+            <div class="grid grid-cols-2">
+                <div class="sm:block justify-self-start">
+                    <inertia-link href="/">
+                        <Logo />
+                    </inertia-link>
+                </div>
+                <div class="self-center justify-self-end">
+                    <ul class="flex ">
+                        <li><Link :href="route('home')">Home</Link></li>
+                        <li><Link :href="route('articles.index')">Articles</Link></li>
+                        <li><Link :href="route('articles.create')">Make Article</Link></li>
+                        <li><Link :href="route('login')">Demo</Link></li>
+                        <li v-if="$page.props.auth.user != null ">
+                            <Link :href="route('logout')" method="post" as="button">Logout</Link>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+
         <slot />
+
     </div>
 </template>
 
@@ -24,11 +49,14 @@
 
 <script>
 
-import Navigation from '@/Components/Navigation';
+import Logo from '@/Components/ApplicationLogo';
+import Link from '@/Components/NavLink';
+
 export default {
     name: 'Main',
     components: {
-        Navigation
+        Logo,
+        Link
     }
 }
 </script>

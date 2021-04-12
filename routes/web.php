@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Feed;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,7 @@ use Inertia\Inertia;
 |
 */
 
+require __DIR__.'/auth.php';
 
 Route::get('/register', function () {
     return Inertia::render('Register', [
@@ -25,7 +27,6 @@ Route::get('/register', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-
 
 Route::get('/', function() {
     return Inertia::render('Home');
@@ -48,7 +49,7 @@ Route::get('/home', function() {
 })->name('home');
 */
 
-require __DIR__.'/auth.php';
+Route::resource('articles', PostController::class);
 
 Route::resource('feed', 'App\Http\Controllers\FeedController');
 

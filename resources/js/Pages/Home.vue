@@ -23,6 +23,8 @@
 
 
 
+
+
 </template>
 
 
@@ -37,12 +39,17 @@
 
 <script>
 import Main from '@/Layouts/Main';
+import Navigation from '@/Components/Navigation';
+
 export default {
     layout: Main,
     data() {
         return {
             hover: false,
         }
+    },
+    components: {
+        Navigation
     }
 }
 </script>
