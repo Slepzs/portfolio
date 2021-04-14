@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class PostController extends Controller
 {
@@ -24,8 +27,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $medias = Media::all();
         return Inertia::render('Post/Create', [
-            'status' => session('status'),
+            'medias' => $medias
         ]);
     }
 
@@ -33,11 +37,31 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        //
+        /*
+        $title = explode(' ', $request->title);
+        $title = implode('-', $title);
+        */
+        /*
+        $request->merge([
+            'slug' => $title,
+        ]);
+        */
+        $article = Post::create($request->except('image'));
+        if($request->file('image')) {
+            $article->addmedia($request->file('image'))->toMediaCollection('images');
+        }
+
+        return Inertia::render('Articles', [
+           'article' => $article
+        ]);
+
+
+
+
     }
 
     /**

@@ -14,8 +14,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'myorange': '#da715b',
-                'myblack': '#1d1d1b'
+                'mblack': '#121212',
+                'mgrey': '#1d1d1d',
+                'morange': '#e59a8b'
             },
             boxShadow: {
                 link: '0 -4px 0 0 rgba(218, 113, 91, 0.7) inset',

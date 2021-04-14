@@ -20,7 +20,7 @@ use Inertia\Inertia;
 require __DIR__.'/auth.php';
 
 Route::get('/register', function () {
-    return Inertia::render('Register', [
+    return Inertia::render('Auth/Register', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,

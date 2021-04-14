@@ -28,5 +28,7 @@
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
     },
-    "dependencies": []
+    "dependencies": {
+        "marked": "^2.0.3"
+    }
 }
