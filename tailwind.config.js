@@ -15,7 +15,7 @@ module.exports = {
             },
             colors: {
                 'mblack': '#121212',
-                'mgrey': '#1d1d1d',
+                'mblue': '#1a2529',
                 'morange': '#e59a8b'
             },
             boxShadow: {

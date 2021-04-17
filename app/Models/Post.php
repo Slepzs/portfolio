@@ -5,14 +5,16 @@ namespace App\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class Post extends Model implements HasMedia
 {
-    use HasFactory, Sluggable, InteractsWithMedia;
+    use HasFactory, Sluggable, SluggableScopeHelpers, InteractsWithMedia;
 
-    protected $fillable = ['title', 'content', 'category', 'slug'];
+    protected $fillable = ['user-id', 'title', 'content', 'category', 'slug'];
 
     public function sluggable(): array
     {
@@ -21,6 +23,11 @@ class Post extends Model implements HasMedia
                 'source' => 'title'
             ]
         ];
+    }
+
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -32,6 +39,13 @@ class Post extends Model implements HasMedia
     {
         return 'slug';
     }
+
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date("d F Y H:i", strtotime($value));
+    }
+
 
 
     /*

@@ -6,16 +6,16 @@
 
         <h1 class="text-white w-full block text-6xl my-12 text-center">Articles</h1>
 
-        <div class="flex justify-center mx-auto flex-wrap">
-            <div v-for="i in 6" :key="i">
-                <a :href="route('home')">
-                    <div class="max-w-md border-2 border-morange py-4 px-8 bg-mgrey mx-4 shadow-lg rounded-lg my-20">
+        <div class="flex mx-auto flex-wrap">
+            <div v-for="article in articles" :key="article">
+                <a :href="route('articles.show', [article.slug])">
+                    <div class="max-w-md w-96  border-2 border-morange py-4 px-8 bg-mblue mx-4 shadow-lg rounded-lg my-20">
                         <div class="flex justify-center md:justify-end -mt-16 ">
-                            <img class="w-20 h-20 object-cover rounded-full border-2 border-morange p-2 bg-white" src="/img/wizard.png">
+                            <img class="w-20 h-20 object-cover rounded-full border-2 border-morange p-2 bg-white" :src="article.image">
                         </div>
                         <div class="p-2">
-                            <h2 class="text-white text-lg">How to fix Linux mint login loop 2021</h2>
-                            <p class="mt-2 text-morange">So you've stumbled across this post. And this is your last shot. Now let me teach you how to fix it.</p>
+                            <h2 class="text-white text-lg">{{ article.title }}</h2>
+                            <p class="mt-2 text-morange">{{ article.content }}</p>
                         </div>
                         <div class="flex justify-end mt-4">
                             <a href="#" class="text-sm font-medium text-morange">Af Tobias Heide</a>
@@ -38,6 +38,7 @@ import Main from '@/Layouts/Main';
 import NavLink from '@/Components/NavLink';
 export default {
     layout: Main,
+    props: ['articles'],
     components: {
         Logo,
         NavLink

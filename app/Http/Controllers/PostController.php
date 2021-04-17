@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
 class PostController extends Controller
 {
@@ -17,7 +19,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Articles');
+
+
+        $articles = Post::with('media')->get();
+        foreach ($articles as $article) {
+            if($article->getMedia('images')->first() != null) {
+                $article['image'] = $article->getMedia('images')->first()->getUrl();
+                unset($article['media']);
+            } else {
+                unset($article['media']);
+            }
+        }
+        return Inertia::render('Articles', [
+        'articles' => $articles
+        ]);
+
     }
 
     /**
@@ -67,12 +83,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $slug
+     * @return \Inertia\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+
+        $article = Post::findBySlugOrFail($slug);
+        if($article->getMedia('images')->count() > 0) {
+            $article['image'] = $article->getMedia('images')->first()->getUrl();
+        }
+        return Inertia::render('Post/Show', [
+           'article' => $article
+        ]);
+
+
     }
 
     /**
@@ -98,14 +123,11 @@ class PostController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        Post::findorFail($id)->delete();
+        return Redirect::route('articles.index', [
+            'message', 'Item deleted'
+        ]);
     }
 }

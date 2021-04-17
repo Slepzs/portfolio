@@ -39,16 +39,23 @@ p {
     font-family: 'Public Sans', sans-serif;
     font-weight: 500;
 }
-/*
+
 @layer base {
-    a {
-        background-image: linear-gradient(to top, orange, yellow, transparent);
-        background-position: 0 110%;
-        background-repeat: no-repeat;
-        background-size: auto .75rem;
+   .box-shadow-st {
+        box-shadow: 0px 0px 3px black;
     }
 }
-*/
+
+
+.bg-custom-gradient {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #121212, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.mbg {
+    @apply bg-mblue box-shadow-st;
+}
 
 .active {
     -webkit-animation:spin 4s linear infinite;
@@ -65,4 +72,8 @@ p {
 
 .grid-70-30 {
     grid-template-columns: 70% 30%;
+}
+
+.grid-15-60-25 {
+    grid-template-columns: 15% 60% 25%;
 }

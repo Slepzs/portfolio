@@ -5,16 +5,16 @@
     <div class="container py-2">
 
         <div class="max-w-screen-lg mx-auto grid gap-6 px-6 grid-70-30">
-            <div class="flex w-full border-4 my-4 border-morange bg-mgrey box-shadow-st justify-center mx-auto flex-wrap">
+            <div class="flex w-full border-4 my-4 border-morange bg-mblue box-shadow-st justify-center mx-auto flex-wrap">
                 <h1 class="Varela p-2 bg-morange  text-white text-2xl w-full">Create Article</h1>
                <div class="p-6">
-                   <form class="w-full" @submit.prevent="submit">
+                   <form class="w-full bg-transparent border-0" @submit.prevent="submit" multiple>
                        <div class="grid gap-2 grid-cols-2">
                            <label class="block text-lg  py-2 my-2 text-white" for="title">Title<input class="block w-full text-black" v-model="form.title" name="title" type="text" placeholder="Write an title"></label>
                            <label class="block text-lg  py-2 my-2 text-white" for="category">
                                Category
                                <select class="block w-full text-mblack" name="category"  v-model="form.category" id="category" value="Select" placeholder="Categories">
-                                   <option>Linux</option>
+                                   <option value="Linux">Linux</option>
                                    <option>CSS</option>
                                    <option>PHP</option>
                                    <option>Javascript</option>
@@ -35,7 +35,7 @@
                </div>
             </div>
             <div class="w-full  my-4 justify-center mx-auto flex-wrap">
-                <div class="text-white w-full box-shadow-st bg-mgrey">
+                <div class="text-white w-full box-shadow-st bg-mblue">
                     <p class="Varela p-2 bg-morange ">Editor Basic</p>
                     <table class="border-collapse block border-1 border-morange">
                         <tr class="border-2 border-morange ">
@@ -96,7 +96,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="overflow-y-scroll my-4 bg-mgrey box-shadow-st text-white w-full bg-mgrey">
+                <div class="overflow-y-scroll my-4 box-shadow-st text-white w-full bg-mblue">
                     <p class="Varela p-2 bg-morange">Pick images by clicking on it</p>
                     <div class="flex my-2 flex-wrap h-60 ">
                         <div v-for="media in medias" :key="media" class="w-20 h-20 m-4 border-2 border-white">
@@ -127,7 +127,8 @@ import Main from '@/Layouts/Main';
 import NavLink from '@/Components/NavLink';
 import {useForm, usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
-import marked from 'marked'
+import marked from 'marked';
+
 export default {
     name: 'createArticle',
     layout: Main,
@@ -184,7 +185,9 @@ export default {
         }
     },
     setup () {
+        const user = usePage().props.value.auth.user.id;
         const form = useForm({
+            user_id: user,
             title: null,
             category: null,
             content: null,

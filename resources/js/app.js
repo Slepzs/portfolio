@@ -2,6 +2,7 @@ require('./bootstrap');
 
 // Import modules...
 import { createApp, h } from 'vue';
+import SvgVue from 'svg-vue3';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 
@@ -19,6 +20,7 @@ createApp({
 })
     .mixin({ methods: { route } })
     .use(InertiaPlugin)
+    .use(SvgVue)
     .mount(el);
 
 InertiaProgress.init({
