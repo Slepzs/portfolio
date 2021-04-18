@@ -8,7 +8,7 @@
             </div>
             <!-- Content -->
             <div>
-                <div class="cover">
+                <div class="cover box-shadow-st">
                     <img class="object-cover" v-if="article.image" :src="article.image" alt="Cover image">
                 </div>
                 <div class="text-white my-8">

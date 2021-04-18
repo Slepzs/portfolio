@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PostController;
 use App\Models\Feed;
 use Illuminate\Foundation\Application;
@@ -27,6 +28,8 @@ Route::get('/register', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::post('/image/upload', [MediaController::class, 'store'])->name('media.store');
 
 Route::get('/', function() {
     return Inertia::render('Home');

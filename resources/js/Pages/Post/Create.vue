@@ -8,7 +8,7 @@
             <div class="flex w-full border-4 my-4 border-morange bg-mblue box-shadow-st justify-center mx-auto flex-wrap">
                 <h1 class="Varela p-2 bg-morange  text-white text-2xl w-full">Create Article</h1>
                <div class="p-6">
-                   <form class="w-full bg-transparent border-0" @submit.prevent="submit" multiple>
+                   <form class="w-full bg-transparent border-0" @submit.prevent="submit">
                        <div class="grid gap-2 grid-cols-2">
                            <label class="block text-lg  py-2 my-2 text-white" for="title">Title<input class="block w-full text-black" v-model="form.title" name="title" type="text" placeholder="Write an title"></label>
                            <label class="block text-lg  py-2 my-2 text-white" for="category">
@@ -21,13 +21,15 @@
                                </select>
                            </label>
                        </div>
-                       <label class="block text-lg py-2 my-2 text-white" for="image">Upload Cover</label>
-                       <input class="col-span-2" id="image_file" type="file" @input="form.image = $event.target.files[0]" />
-                       <label class="block text-lg py-2 my-2 text-morange border-b-2 border-morange" for="content">Write Post using Markdown </label>
+                       <input style="display: none;" class="col-span-2" id="image_file" type="file" @input="form.image = $event.target.files[0]" />
+                       <div @click="imgupload()" class="cursor-pointer block w-full border-2 border-white py-12">
+                           <p class="text-white uppercase flex justify-center align-center">Upload Image</p>
+                       </div>
+                       <label class="block text-lg py-2 my-2 text-white" for="content">Write Post using Markdown </label>
                        <div class="grid grid-cols-2 gap-2">
                        <textarea  v-model="form.content" class="w-full py-4" name="content" id="mdeditor" cols="30"
                                rows="20"></textarea>
-                           <div class="text-black p-4 bg-white" v-html="compiledMarkdown"></div>
+                           <div class="text-black custom_text p-4 bg-white" v-html="compiledMarkdown"></div>
                        </div>
 
                        <button class="block w-32 py-2 px-4 my-4 uppercase bg-morange text-white" type="submit">Submit</button>
@@ -96,15 +98,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="overflow-y-scroll my-4 box-shadow-st text-white w-full bg-mblue">
-                    <p class="Varela p-2 bg-morange">Pick images by clicking on it</p>
-                    <div class="flex my-2 flex-wrap h-60 ">
-                        <div v-for="media in medias" :key="media" class="w-20 h-20 m-4 border-2 border-white">
-                            <img class="cursor-pointer" @click="path" :src="`/storage/${media.id}/${media?.file_name}`" ref="image">
-                        </div>
-                    </div>
-
-                </div>
+                <ImagePicker :medias="medias"></ImagePicker>
             </div>
         </div>
     </div>
@@ -118,6 +112,10 @@
   box-shadow: 0px 0px 3px black;
 }
 
+.custom_text p {
+    margin: 20px 0px;
+}
+
 </style>
 
 
@@ -128,13 +126,15 @@ import NavLink from '@/Components/NavLink';
 import {useForm, usePage} from "@inertiajs/inertia-vue3";
 import {Inertia} from "@inertiajs/inertia";
 import marked from 'marked';
+import ImagePicker from '@/Components/ImagePicker';
 
 export default {
     name: 'createArticle',
     layout: Main,
     components: {
         Logo,
-        NavLink
+        NavLink,
+        ImagePicker
     },
     props: ['medias'],
     data() {
@@ -148,31 +148,9 @@ export default {
         }
     },
     methods: {
-        copyToClipboard(text) {
-                if (window.clipboardData && window.clipboardData.setData) {
-                    // IE specific code path to prevent textarea being shown while dialog is visible.
-                    return clipboardData.setData("Text", text);
-
-                } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-                    var textarea = document.createElement("textarea");
-                    textarea.textContent = text;
-                    textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in MS Edge.
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    try {
-                        return document.execCommand("copy");  // Security exception may be thrown by some browsers.
-                    } catch (ex) {
-                        console.warn("Copy to clipboard failed.", ex);
-                        return false;
-                    } finally {
-                        document.body.removeChild(textarea);
-                    }
-                }
+        imgupload() {
+            return document.getElementById('image_file').click();
         },
-        path() {
-            let $image = this.$refs.image;
-            return console.log(this.copyToClipboard(`![image info](${$image.getAttribute('src')})`));
-        }
     },
     computed: {
         compiledMarkdown: function() {

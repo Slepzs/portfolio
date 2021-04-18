@@ -14,7 +14,7 @@ class Post extends Model implements HasMedia
 {
     use HasFactory, Sluggable, SluggableScopeHelpers, InteractsWithMedia;
 
-    protected $fillable = ['user-id', 'title', 'content', 'category', 'slug'];
+    protected $fillable = ['user_id', 'title', 'content', 'category', 'slug'];
 
     public function sluggable(): array
     {

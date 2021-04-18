@@ -17,9 +17,10 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('title');
-            $table->string('content', 2000);
+            $table->string('content', 2000)->nullable();
             $table->string('category', 50);
             $table->string('slug', 200)->nullable();
+            $table->integer('private')->default(0);
             $table->timestamps();
         });
     }
